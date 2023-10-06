@@ -5,7 +5,9 @@ public class Lc3
 	static int[] reg = new int[R.COUNT];
 	static int[] program = {
 		0x0003,
-		0xd000,
+		0x5230,
+		0x0502,
+		0xd000
 	};
 
 	static void load_image(int[] image, int[] mem)
@@ -34,6 +36,7 @@ public class Lc3
 			switch(opcode)
 			{
 				case Opcode.BR:
+					Instr.br(instr, reg);
 					break;
 				case Opcode.ADD:
 				  break;
@@ -44,6 +47,7 @@ public class Lc3
 				case Opcode.JSR:
 				  break;
 				case Opcode.AND:
+					Instr.and(instr, reg);
 				  break;
 				case Opcode.LDR:
 					break;
